@@ -1,0 +1,110 @@
+[
+  {
+    "text": "Menu Heading",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "GM Account View",
+    "sref": "#",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.auth.ACCOUNT",
+    "submenu": [
+      {
+        "text": "Create Account",
+        "sref": "",
+        "translate": "sidebar.nav.auth.CREATEACCOUNT"
+      },
+      {
+        "text": "Delete Account",
+        "sref": "",
+        "translate": "sidebar.nav.auth.DELETEACCOUNT"
+      },
+      {
+        "text": "Modify Account",
+        "sref": "",
+        "translate": "sidebar.nav.auth.MODIFYACCOUNT"
+      },
+      {
+        "text": "List Account",
+        "sref": "",
+        "translate": "sidebar.nav.auth.LISTACCOUNT"
+      }
+    ]
+  },
+  {
+    "text": "User Management View",
+    "sref": "#",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.user.USERMANAGER",
+    "submenu": [
+      {
+        "text": "User Data",
+        "sref": "",
+        "translate": "sidebar.nav.user.USERDATA"
+      },
+      {
+        "text": "Trade Data",
+        "sref": "",
+        "translate": "sidebar.nav.user.TRADEDATA"
+      },
+      {
+        "text": "Rank List",
+        "sref": "",
+        "translate": "sidebar.nav.user.RANKLIST"
+      }
+    ]
+  },
+  {
+    "text": "Server Management View",
+    "sref": "#",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.server.SERVERMANAGER",
+    "submenu": [
+      {
+        "text": "Server Info",
+        "sref": "",
+        "translate": "sidebar.nav.server.SERVERINFO"
+      },
+      {
+        "text": "Server Online",
+        "sref": "",
+        "translate": "sidebar.nav.server.SERVERONLINE"
+      },
+      {
+        "text": "Server Status",
+        "sref": "",
+        "translate": "sidebar.nav.server.SERVERSTATUS"
+      },
+      {
+        "text": "Server Alarm",
+        "sref": "",
+        "translate": "sidebar.nav.server.SERVERALARM"
+      }
+    ]
+  },
+  {
+    "text": "Game Management View",
+    "sref": "#",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.game.GAMEMANAGER",
+    "submenu": [
+      {
+        "text": "Role Data",
+        "sref": "game.role",
+        "translate": "sidebar.nav.game.ROLEDATA"
+      },
+      {
+        "text": "Send Mail",
+        "sref": "game.mail",
+        "translate": "sidebar.nav.game.SENDMAIL"
+      }
+    ]
+  },
+  {
+    "text": "Single View",
+    "sref": "app.singleview",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.SINGLEVIEW"
+  }
+]

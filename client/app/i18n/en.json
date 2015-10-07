@@ -1,0 +1,44 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to {{appName}}"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    }
+  },
+  "sidebar": {
+    "WELCOME": "Welcome",
+    "heading": {
+      "HEADER": "Main Navigation"
+    },
+    "nav": {
+      "auth": {
+        "ACCOUNT": "Account",
+        "CREATEACCOUNT": "Create Account",
+        "DELETEACCOUNT": "Delete Account",
+        "MODIFYACCOUNT": "Modify Account",
+        "LISTACCOUNT": "List Account"
+      },
+      "user":{
+        "USERMANAGER": "User Management",
+        "USERDATA": "User Info",
+        "TRADEDATA": "Trade Info",
+        "RANKLIST": "Rank Info"
+      },
+      "server":{
+        "SERVERMANAGER": "Server Management",
+        "SERVERINFO": "Server Info",
+        "SERVERONLINE": "Server Online",
+        "SERVERSTATUS": "Server Status",
+        "SERVERALARM": "Server Alarm"
+      },
+      "game":{
+        "GAMEMANAGER": "Game Management",
+        "ROLEDATA": "Role Data",
+        "SENDMAIL": "Send Mail"
+      },
+      "SINGLEVIEW": "Single View"
+    }
+  }
+}
