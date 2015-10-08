@@ -3,6 +3,7 @@
     <words>
       <w>cors</w>
       <w>dest</w>
+      <w>sqlalchemy</w>
     </words>
   </dictionary>
 </component>

@@ -1,32 +1,37 @@
 # -*- coding: utf-8 -*-
 
-from flask.ext.restful import Resource, reqparse, fields, marshal_with
+from flask_restplus import Resource, fields
 
-from apps.api.models import Post
-from apps.common.argument_class import Argument
 from apps.database import db
 from apps.extensions import auth
 
-post_parser = reqparse.RequestParser(argument_class=Argument)
+from .models import Post
+from .urls import api
+
+
+post_parser = api.parser()
 post_parser.add_argument('title', type=str, required=True, help='Title cannot be blank!')
 post_parser.add_argument('body', type=str)
 
-post_fields = {
+post_fields = api.model('Post', {
     'id': fields.Integer,
     'title': fields.String,
     'body': fields.String,
     'user_id': fields.Integer,
-}
+})
 
+@api.route('/posts')
 class PostListAPI(Resource):
 
-    @marshal_with(post_fields)
+    @api.doc(parser=post_parser)
+    @api.marshal_list_with(post_fields)
     def get(self):
         posts = Post.query.all()
         return posts
 
+    @api.doc(parser=post_parser)
     @auth.login_required
-    @marshal_with(post_fields)
+    @api.marshal_with(post_fields)
     def post(self):
         args = post_parser.parse_args()
         post = Post(args.title, args.body)
@@ -35,9 +40,12 @@ class PostListAPI(Resource):
         return post
 
 
+@api.route('/posts/<int:id>')
 class PostAPI(Resource):
 
-    @marshal_with(post_fields)
+    @api.doc(parser=post_parser)
+    @api.marshal_with(post_fields)
     def get(self, id):
         posts = Post.query.filter_by(id=id).first()
         return posts
+

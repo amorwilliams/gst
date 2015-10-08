@@ -4,7 +4,7 @@ import os
 import sys
 from base import BaseApp
 
-from extensions import api, bcrypt, migrate, ma, auth
+from extensions import bcrypt, migrate, ma, auth
 from database import db
 from utils import verify_password
 
@@ -26,9 +26,6 @@ class App(BaseApp):
         pass
 
     def configure_extensions(self):
-        # flask_restful
-        api.init_app(self)
-
         # flask_bcrypt
         bcrypt.init_app(self)
 

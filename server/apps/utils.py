@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from flask import g
-from apps.api.models import User
 from apps.extensions import auth, bcrypt
+from apps.users.models import User
 
 
 def verify_password(email, password):

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2326419837">
-    <data-source source="LOCAL" name="gst_dev" uuid="c3659871-e672-4569-a4c5-8c18c897be4f">
+  <component name="DataSourceManagerImpl" format="xml" hash="288700687">
+    <data-source source="LOCAL" name="gst_dev" uuid="b2c6dfe7-4f4e-4c6c-bb6a-af12df224c9b">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/server/apps/gst_dev.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:F:\Python\flask\gst\server\apps\gst_dev.sqlite</jdbc-url>
       <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
