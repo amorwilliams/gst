@@ -14,21 +14,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/theme-f.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/theme-g.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/css/theme-h.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/master/js/gst/modules/accounts/controllers/account-login.js" afterPath="$PROJECT_DIR$/client/master/js/gst/modules/users/controllers/user-login.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/master/js/gst/modules/accounts/controllers/account-register.js" afterPath="$PROJECT_DIR$/client/master/js/gst/modules/users/controllers/user-register.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/client/master/js/gst/modules/accounts/services/auth.js" afterPath="$PROJECT_DIR$/client/master/js/gst/modules/users/services/auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/apps/config.py" afterPath="$PROJECT_DIR$/server/apps/config.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gst.iml" afterPath="$PROJECT_DIR$/.idea/gst.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/apps/main.py" afterPath="$PROJECT_DIR$/server/apps/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/manage.py" afterPath="$PROJECT_DIR$/server/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/apps/users/models.py" afterPath="$PROJECT_DIR$/server/apps/users/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/apps/api/post.py" afterPath="$PROJECT_DIR$/server/apps/api/post.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/apps/api/user.py" afterPath="$PROJECT_DIR$/server/apps/api/user.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/apps/utils.py" afterPath="$PROJECT_DIR$/server/apps/utils.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gst.iws" />
@@ -296,56 +282,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -609,7 +545,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444317142174</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="auth token">
+      <created>1444324216889</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1444324216889</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -652,7 +594,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add *" />
     <MESSAGE value="ignore workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore workspace.xml" />
+    <MESSAGE value="auth token" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth token" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
