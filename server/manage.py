@@ -23,3 +23,4 @@ manager.add_command("drop_db", commands.DropDB())
 
 if __name__ == "__main__":
     manager.run()
+

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+from flask import g, jsonify
 
 from flask_restplus import Resource, fields
 
 from apps.database import db
-from apps.extensions import bcrypt
+from apps.extensions import bcrypt, auth
 from apps.users.models import User
 
 from .urls import api
@@ -40,6 +41,24 @@ session_fields = api.model('Login', {
     'password': fields.String(discriminator=True),
 })
 
+token_fields = api.model('Token', {
+    'token': fields.String,
+    'duration': fields.Integer,
+})
+
+
+@auth.verify_password
+def verify_password(username_or_token, password):
+    # first try to authenticate by token
+    user = User.verify_auth_token(username_or_token)
+    if not user:
+        # try to authenticate with username/password
+        user = User.query.filter_by(username=username_or_token).first()
+        if not user or not user.verify_password(password):
+            return False
+    g.user = user
+    return True
+
 
 @api.route('/users')
 class UserAPI(Resource):
@@ -57,6 +76,16 @@ class UserAPI(Resource):
         db.session.add(user)
         db.session.commit()
         return user
+
+
+@api.route('/token')
+class TokenAPI(Resource):
+
+    @auth.login_required
+    @api.marshal_with(token_fields)
+    def get(self):
+        token = g.user.generate_auth_token(600)
+        return {'token': token.decode('ascii'), 'duration': 600}
 
 
 @api.route('/sessions')

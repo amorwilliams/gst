@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from flask import g
+import flask
+from itsdangerous import (TimedJSONWebSignatureSerializer
+                          as Serializer, SignatureExpired, BadSignature)
 from wtforms.validators import Email
 
 from apps.common.sqlalchemy import BaseMixin
 from apps.database import db
+from apps.extensions import bcrypt
 
 
 class User(BaseMixin, db.Model):
@@ -36,6 +39,30 @@ class User(BaseMixin, db.Model):
 
     @property
     def is_staff(self):
-        "Is the user a member of staff?"
-        # Simplest possible answer: All admins are staff
+        """
+        Is the user a member of staff?
+        Simplest possible answer: All admins are staff
+        """
         return self.is_admin
+
+    def hash_password(self, password):
+        self.password = bcrypt.generate_password_hash(password)
+
+    def verify_password(self, password):
+        return bcrypt.check_password_hash(self.password, password)
+
+    def generate_auth_token(self, expiration=600):
+        s = Serializer(flask.current_app.config['SECRET_KEY'], expires_in=expiration)
+        return s.dumps({'id': self.id})
+
+    @staticmethod
+    def verify_auth_token(token):
+        s = Serializer(flask.current_app.config['SECRET_KEY'])
+        try:
+            data = s.loads(token)
+        except SignatureExpired:
+            return None    # valid token, but expired
+        except BadSignature:
+            return None    # invalid token
+        user = User.query.get(data['id'])
+        return user

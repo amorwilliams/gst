@@ -20,16 +20,21 @@ post_fields = api.model('Post', {
     'user_id': fields.Integer,
 })
 
+create_post_fields = api.model('CreatePost', {
+    'title': fields.String,
+    'body': fields.String,
+})
+
+
 @api.route('/posts')
 class PostListAPI(Resource):
 
-    @api.doc(parser=post_parser)
     @api.marshal_list_with(post_fields)
     def get(self):
         posts = Post.query.all()
         return posts
 
-    @api.doc(parser=post_parser)
+    @api.expect(create_post_fields)
     @auth.login_required
     @api.marshal_with(post_fields)
     def post(self):
@@ -43,9 +48,11 @@ class PostListAPI(Resource):
 @api.route('/posts/<int:id>')
 class PostAPI(Resource):
 
-    @api.doc(parser=post_parser)
+    @api.doc(params={'id': 'Post ID'})
     @api.marshal_with(post_fields)
     def get(self, id):
         posts = Post.query.filter_by(id=id).first()
+        if not posts:
+            api.abort(404)
         return posts
 

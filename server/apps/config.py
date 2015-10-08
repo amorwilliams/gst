@@ -28,7 +28,7 @@ class Config(object):
 
     # LOGGING
     LOGGER_NAME = "%s_log" % project_name
-    LOG_FILENAME = os.path.join(basedir, 'app.%s.log' % project_name)
+    LOG_FILENAME = os.path.join(basedir, '../app.%s.log' % project_name)
     LOG_LEVEL = logging.INFO
     LOG_FORMAT = "%(asctime)s %(levelname)s\t: %(message)s" # used by logging.Formatter
 
@@ -55,7 +55,7 @@ class Dev(Config):
     DEBUG = True  # we want debug level output
     MAIL_DEBUG = True
     SQLALCHEMY_ECHO = True  # we want to see sqlalchemy output
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '%s_dev.sqlite' % project_name)
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../%s_dev.sqlite' % project_name)
 
 
 # config class used during tests
@@ -63,4 +63,4 @@ class Test(Config):
     TESTING = True
     WTF_CSRF_ENABLED = False
     SQLALCHEMY_ECHO = False
-    SQLALCHEMY_DATABASE_URI =  'sqlite:///' + os.path.join(basedir, '%s_test.sqlite' % project_name)
+    SQLALCHEMY_DATABASE_URI =  'sqlite:///' + os.path.join(basedir, '../%s_test.sqlite' % project_name)

@@ -1,5 +1,5 @@
 /**=========================================================
- * Module: account-register.js
+ * Module: user-register.js
  * GST for register account api
  =========================================================*/
 

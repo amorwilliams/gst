@@ -6,7 +6,7 @@ from base import BaseApp
 
 from extensions import bcrypt, migrate, ma, auth
 from database import db
-from utils import verify_password
+
 
 # apps is a special folder where you can place your blueprints
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -38,11 +38,6 @@ class App(BaseApp):
         # flask_cors
         from flask_cors import CORS
         CORS(self, resources={r'/api/*': {'origins': '*'}})
-
-        # flask_httpauth
-        @auth.verify_password
-        def verify_pw(username, password):
-            return verify_password(username, password)
 
 
 def config_str_to_obj(cfg):

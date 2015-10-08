@@ -34,7 +34,7 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
     function register(email, password, username){
         var def = $q.defer();
         $http
-            .post(urls.auth + 'api/v1/auth/register/', {
+            .post(urls.auth + 'api/v1/users/', {
                 username:username,
                 password:password,
                 email:email
@@ -73,7 +73,7 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
     function login(email, password) {
         //var def = $q.defer();
 
-        var promise = $http.post(urls.auth + '/api/v1/auth/login/', {
+        var promise = $http.post(urls.auth + '/api/v1/sessions/', {
                 email: email,
                 password: password
             });
