@@ -88,19 +88,6 @@ var vendorUglifyOpts = {
     }
 };
 
-var compassOpts = {
-    project: path.join(__dirname, '../'),
-    css: 'app/css',
-    sass: 'master/sass/',
-    image: 'app/img'
-};
-
-var compassOptsThemes = {
-    project: path.join(__dirname, '../'),
-    css: 'app/css',
-    sass: 'master/sass/themes/', // themes in a subfolders
-    image: 'app/img'
-};
 
 //---------------
 // TASKS
@@ -160,7 +147,8 @@ gulp.task('styles:app', function () {
     log('Building application styles..');
     return gulp.src(source.styles.app)
         .pipe($.if(useSourceMaps, $.sourcemaps.init()))
-        .pipe($.compass(compassOpts))
+        //.pipe($.compass(compassOpts))
+        .pipe($.sass())
         .on('error', handleError)
         .pipe($.if(isProduction, $.minifyCss()))
         .pipe($.if(useSourceMaps, $.sourcemaps.write()))
@@ -172,7 +160,8 @@ gulp.task('styles:app:rtl', function () {
     log('Building application RTL styles..');
     return gulp.src(source.styles.app)
         .pipe($.if(useSourceMaps, $.sourcemaps.init()))
-        .pipe($.compass(compassOpts))
+        //.pipe($.compass(compassOpts))
+        .pipe($.sass())
         .on('error', handleError)
         .pipe(flipcss())
         .pipe($.if(isProduction, $.minifyCss()))
@@ -188,7 +177,8 @@ gulp.task('styles:app:rtl', function () {
 gulp.task('styles:themes', function () {
     log('Building application theme styles..');
     return gulp.src(source.styles.themes)
-        .pipe($.compass(compassOptsThemes))
+        //.pipe($.compass(compassOptsThemes))
+        .pipe($.sass())
         .on('error', handleError)
         .pipe(gulp.dest(build.styles));
 });

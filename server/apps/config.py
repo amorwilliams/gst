@@ -26,6 +26,10 @@ class Config(object):
     WTF_CSRF_ENABLED = False
     SECRET_KEY = os.urandom(24)
 
+    # JWT
+    JWT_EXPIRATION_DELTA = timedelta(days=30)
+    JWT_AUTH_URL_RULE = '/api/v1/auth'
+
     # LOGGING
     LOGGER_NAME = "%s_log" % project_name
     LOG_FILENAME = os.path.join(basedir, '../app.%s.log' % project_name)

@@ -2,9 +2,13 @@
 
 import os
 import sys
-from base import BaseApp
 
-from extensions import bcrypt, migrate, ma, auth
+from flask.ext.security.utils import verify_password
+
+from apps.users.models import user_datastore
+
+from base import BaseApp
+from extensions import bcrypt, security, jwt, migrate
 from database import db
 
 
@@ -22,23 +26,37 @@ class App(BaseApp):
         """
         db.init_app(self)
 
-    def configure_views(self):
-        pass
-
     def configure_extensions(self):
-        # flask_bcrypt
-        bcrypt.init_app(self)
-
-        # flask_migrate
+        # flask-migrate
         migrate.init_app(self, db)
 
-        # flask_marshmallow
-        ma.init_app(self)
+        # flask_bcrypt
+        bcrypt.init_app(self)
 
         # flask_cors
         from flask_cors import CORS
         CORS(self, resources={r'/api/*': {'origins': '*'}})
 
+        # flask-security
+        security.init_app(self, datastore=user_datastore)
+
+        # flask-jwt
+        jwt.init_app(self)
+
+        @jwt.authentication_handler
+        def authenticate(username, password):
+            user = user_datastore.find_user(email=username)
+            if user and username == user.email and verify_password(password, user.password):
+                return user
+            return None
+
+        @jwt.user_handler
+        def load_user(payload):
+            user = user_datastore.find_user(id=payload['user_id'])
+            return user
+
+    def configure_views(self):
+        pass
 
 def config_str_to_obj(cfg):
     if isinstance(cfg, basestring):
