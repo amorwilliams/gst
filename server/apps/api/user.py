@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from flask import g, jsonify
-from flask.ext.jwt import jwt_required
+from flask.ext.security.registerable import register_user
+from flask.ext.security.utils import verify_and_update_password, get_hmac, encrypt_password
+from flask.ext.security.views import login
 
 from flask_restplus import Resource, fields
 
 from apps.database import db
-from apps.extensions import bcrypt
-from apps.users.models import User
+from apps.users.models import User, user_datastore
 
 from .urls import api
 
@@ -26,7 +27,6 @@ user_fields = api.model('User', {
 
 create_user_fields = api.model('CreateUser', {
     'email': fields.String(discriminator=True),
-    'username': fields.String(discriminator=True),
     'password': fields.String(discriminator=True),
 })
 
@@ -37,7 +37,7 @@ session_fields = api.model('Login', {
 
 token_fields = api.model('Token', {
     'token': fields.String,
-    'duration': fields.Integer,
+    # 'duration': fields.Integer,
 })
 
 
@@ -54,31 +54,28 @@ token_fields = api.model('Token', {
 #     return True
 
 
-# @api.route('/users')
-# class UserAPI(Resource):
-#
-#     @api.expect(create_user_fields, validate=True)
-#     @api.response(201, 'Success')
-#     @api.response(400, 'Validation Error')
-#     @api.marshal_with(user_fields, code=201)
-#     def post(self):
-#         args = user_parser.parse_args()
-#         password_hash = bcrypt.generate_password_hash(args.password)
-#         user = User(args.email, args.username, password_hash)
-#         db.session.add(user)
-#         db.session.commit()
-#         return user
+@api.route('/users')
+class UserAPI(Resource):
+
+    @api.expect(create_user_fields, validate=True)
+    @api.response(201, 'Success')
+    @api.response(400, 'Validation Error')
+    @api.marshal_with(user_fields, code=201)
+    def post(self):
+        args = user_parser.parse_args()
+        user = register_user(**args)
+        return user
 
 
 # @api.route('/token')
 # class TokenAPI(Resource):
 #
 #     # @auth.login_required
-#     @jwt_required()
 #     @api.marshal_with(token_fields)
-#     def get(self):
-#         token = g.user.generate_auth_token(600)
-#         return {'token': token.decode('ascii'), 'duration': 600}
+#     def post(self):
+#         return login()
+        # token = g.user.generate_auth_token(600)
+        # return {'token': token.decode('ascii'), 'duration': 600}
 
 
 # @api.route('/sessions')

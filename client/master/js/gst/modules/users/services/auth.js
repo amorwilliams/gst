@@ -73,7 +73,7 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
     function login(email, password) {
         //var def = $q.defer();
 
-        var promise = $http.post(urls.auth + '/api/v1/sessions/', {
+        var promise = $http.post(urls.auth + '/api/v1/auth/', {
                 email: email,
                 password: password
             });

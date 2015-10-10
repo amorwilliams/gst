@@ -27,8 +27,15 @@ class Config(object):
     SECRET_KEY = os.urandom(24)
 
     # JWT
+    JWT_AUTH_USERNAME_KEY = 'email'
     JWT_EXPIRATION_DELTA = timedelta(days=30)
     JWT_AUTH_URL_RULE = '/api/v1/auth'
+
+    # Flask-Security
+    SECURITY_PASSWORD_HASH = 'bcrypt'
+    SECURITY_PASSWORD_SALT = '$2b$12$sLUvtpuWIDSQjyASemjgY.'
+    SECURITY_LOGIN_URL = '/api/v1/login'
+    SECURITY_TRACKABLE = True
 
     # LOGGING
     LOGGER_NAME = "%s_log" % project_name
@@ -60,7 +67,7 @@ class Dev(Config):
     MAIL_DEBUG = True
     SQLALCHEMY_ECHO = True  # we want to see sqlalchemy output
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../%s_dev.sqlite' % project_name)
-
+    SECURITY_SEND_REGISTER_EMAIL = False
 
 # config class used during tests
 class Test(Config):

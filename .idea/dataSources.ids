@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="gst_dev" uuid="49b2f42e-8236-400e-9533-5a8f2afa5f85">
+  <data-source name="gst_dev" uuid="cf5b0dc2-c056-4a45-a27a-24f24d7ab04b">
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>

@@ -1164,6 +1164,6 @@ GST.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'RouteH
  =========================================================*/
 GST
     .constant('APP_URLS',{
-        auth: 'http://localhost:8000'
+        auth: 'http://localhost:5000'
     })
 ;

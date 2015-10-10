@@ -6,7 +6,6 @@ from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, SignatureExpired, BadSignature)
 
 from apps.database import db
-from apps.extensions import bcrypt
 
 
 roles_users = db.Table('roles_users',
@@ -28,34 +27,8 @@ class User(db.Model, UserMixin):
     current_login_ip = db.Column(db.String(255))
     login_count = db.Column(db.Integer)
 
-    def __init__(self, email, password):
-        self.email = email
-        self.password = password
-
     def __repr__(self):
         return '<models.User[email=%s]>' % self.email
-
-    # def hash_password(self, password):
-    #     self.password = bcrypt.generate_password_hash(password)
-    #
-    # def verify_password(self, password):
-    #     return bcrypt.check_password_hash(self.password, password)
-    #
-    # def generate_auth_token(self, expiration=600):
-    #     s = Serializer(flask.current_app.config['SECRET_KEY'], expires_in=expiration)
-    #     return s.dumps({'id': self.id})
-    #
-    # @staticmethod
-    # def verify_auth_token(token):
-    #     s = Serializer(flask.current_app.config['SECRET_KEY'])
-    #     try:
-    #         data = s.loads(token)
-    #     except SignatureExpired:
-    #         return None    # valid token, but expired
-    #     except BadSignature:
-    #         return None    # invalid token
-    #     user = User.query.get(data['id'])
-    #     return user
 
 
 class Role(db.Model, RoleMixin):
