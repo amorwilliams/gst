@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b68e0b2c-90b4-4beb-b73b-c490cf83c2ba" name="Default" comment="replace gulp-sass">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/migrations/versions/2f06c4844cc5_.py" />
+    <list default="true" id="b68e0b2c-90b4-4beb-b73b-c490cf83c2ba" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="gst.iws" />
@@ -582,7 +581,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444543556131</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="rm workspace.xml">
+      <created>1444543700258</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1444543700258</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -628,7 +633,8 @@
     <MESSAGE value="auth token" />
     <MESSAGE value="replace gulp-sass" />
     <MESSAGE value="ignore python files" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore python files" />
+    <MESSAGE value="rm workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="rm workspace.xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
