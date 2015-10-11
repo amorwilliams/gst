@@ -1,5 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+ Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
 *.log
 
 bower_components
@@ -10,4 +16,4 @@ node_modules
 
 .sass-cache
 
-workspace.xml
+.idea/workspace.xml
