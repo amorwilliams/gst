@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-
+from flask import Blueprint
+from flask.ext.security import auth_token_required
 from flask_restplus import Resource, fields
 
+from apps.api import ns_posts as ns, api
 from apps.database import db
-from apps.extensions import auth
-
 from .models import Post
-from .urls import api
 
 
 post_parser = api.parser()
@@ -26,7 +25,7 @@ create_post_fields = api.model('CreatePost', {
 })
 
 
-@api.route('/posts')
+@ns.route('/')
 class PostListAPI(Resource):
 
     @api.marshal_list_with(post_fields)
@@ -35,7 +34,8 @@ class PostListAPI(Resource):
         return posts
 
     @api.expect(create_post_fields)
-    @auth.login_required
+    @api.header('Authentication-Token')
+    @auth_token_required
     @api.marshal_with(post_fields)
     def post(self):
         args = post_parser.parse_args()
@@ -45,7 +45,7 @@ class PostListAPI(Resource):
         return post
 
 
-@api.route('/posts/<int:id>')
+@ns.route('/<int:id>')
 class PostAPI(Resource):
 
     @api.doc(params={'id': 'Post ID'})

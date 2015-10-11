@@ -18,6 +18,6 @@ GST.factory('authInterceptor', ['$rootScope', '$q', '$window', function($rootSco
     };
 }]);
 
-GST.config(['$httpProvider', function($httpProvider){
-    $httpProvider.interceptors.push('authInterceptor');
-}])
+//GST.config(['$httpProvider', function($httpProvider){
+//    $httpProvider.interceptors.push('authInterceptor');
+//}]);

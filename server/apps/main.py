@@ -3,9 +3,7 @@
 import os
 import sys
 
-from flask.ext.security.utils import verify_password
-
-from apps.users.models import user_datastore
+from apps.api.users import user_datastore
 
 from base import BaseApp
 from extensions import security, migrate
@@ -37,23 +35,9 @@ class App(BaseApp):
         # flask-security
         security.init_app(self, datastore=user_datastore, register_blueprint=True)
 
-        # flask-jwt
-        # jwt.init_app(self)
-        #
-        # @jwt.authentication_handler
-        # def authenticate(email, password):
-        #     user = user_datastore.find_user(email=email)
-        #     if user and email == user.email and verify_password(password, user.password):
-        #         return user
-        #     return None
-        #
-        # @jwt.user_handler
-        # def load_user(payload):
-        #     user = user_datastore.find_user(id=payload['user_id'])
-        #     return user
-
     def configure_views(self):
         pass
+
 
 def config_str_to_obj(cfg):
     if isinstance(cfg, basestring):

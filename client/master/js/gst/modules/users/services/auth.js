@@ -31,13 +31,13 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
      * @returns {Promise}
      * @memberOf thinkster.authentication.services.Authentication
      */
-    function register(email, password, username){
+    function register(email, password, password_confirm){
         var def = $q.defer();
         $http
-            .post(urls.auth + 'api/v1/users/', {
-                username:username,
+            .post(urls.auth + '/api/v1/users/', {
+                email:email,
                 password:password,
-                email:email
+                password_confirm:password_confirm
             })
             .then(onRegisterSuccess, onRegisterError);
 
@@ -71,17 +71,16 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
      * @memberOf thinkster.authentication.services.Authentication
      */
     function login(email, password) {
-        //var def = $q.defer();
-
-        var promise = $http.post(urls.auth + '/api/v1/auth/', {
+        var def = $q.defer();
+        $http
+            .post(urls.auth + '/api/v1/users/token', {
                 email: email,
                 password: password
-            });
+            })
+            .then(onLoginSuccess, onLoginError);
 
-        promise.then(onLoginSuccess, onLoginError);
-
-        return promise;
-        //return def.promise;
+        //return promise;
+        return def.promise;
 
         /**
          * @name onLoginSuccess
@@ -89,7 +88,7 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
          */
         function onLoginSuccess(data, status, headers, config) {
             Auth.setAuthenticatedAccount(data.data);
-            //def.resolve(data);
+            def.resolve(data.data);
         }
 
         /**
@@ -98,7 +97,7 @@ GST.factory('Auth', ['$cookies', '$http', '$state', '$q', 'APP_URLS', function($
          */
         function onLoginError(data, status, headers, config) {
             console.error('Epic failure!');
-            //def.reject('Server Request Error');
+            def.reject('Server Request Error');
         }
     }
 

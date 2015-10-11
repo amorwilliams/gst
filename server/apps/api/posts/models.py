@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from flask import g
+from flask_security.core import current_user
 
 from apps.database import db
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,7 +15,7 @@ class Post(db.Model):
     def __init__(self, title, body):
         self.title = title
         self.body = body
-        self.user_id = g.user.id
+        self.user_id = current_user.id
 
     def __repr__(self):
         return '<Post %r>' % self.title

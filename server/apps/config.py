@@ -58,7 +58,9 @@ class Config(object):
     # see example/ for reference
     # ex: BLUEPRINTS = ['blog']  # where app is a Blueprint instance
     # ex: BLUEPRINTS = [('blog', {'url_prefix': '/myblog'})]  # where app is a Blueprint instance
-    BLUEPRINTS = [('apps.api', {'url_prefix': '/api/v1'})]
+    BLUEPRINTS = [
+        ('apps.api', {'url_prefix': '/api/v1'}),
+    ]
 
 
 # config class for development environment

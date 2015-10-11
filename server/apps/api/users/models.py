@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import flask
 from flask.ext.security import UserMixin, RoleMixin, SQLAlchemyUserDatastore
-from itsdangerous import (TimedJSONWebSignatureSerializer
-                          as Serializer, SignatureExpired, BadSignature)
 
 from apps.database import db
 

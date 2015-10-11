@@ -20,7 +20,7 @@ GST.controller('LoginFormController', ['$scope', '$state', 'Auth', function($sco
                 .then(function(response) {
                     // assumes if ok, response is an object with some data, if not, a string with error
                     // customize according to your api
-                    if ( !response.data.username ) {
+                    if ( !response['authentication_token'] ) {
                         $scope.authMsg = 'Incorrect credentials.';
                     }else{
                         $state.go('game.role');

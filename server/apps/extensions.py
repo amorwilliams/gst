@@ -6,9 +6,6 @@ in app.py
 from flask_security import Security
 security = Security()
 
-# from flask.ext.jwt import JWT
-# jwt = JWT()
-
 from flask_httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 

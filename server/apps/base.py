@@ -26,7 +26,7 @@ class BaseApp(Flask):
         self.config.from_envvar("APP_CONFIG", silent=True)
 
     def add_blueprint(self, name, kw):
-        blueprint = _import_variable(name, 'urls', 'app')
+        blueprint = _import_variable(name, 'views', 'app')
         self.register_blueprint(blueprint, **kw)
 
     def add_blueprint_list(self, bp_list):

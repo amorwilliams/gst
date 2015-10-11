@@ -3,7 +3,7 @@
  * GST for register account api
  =========================================================*/
 
-GST.controller('RegisterFormController', ['$scope', '$http', '$state', function($scope, $http, $state) {
+GST.controller('RegisterFormController', ['$scope', '$http', '$state', 'Auth', function($scope, $http, $state, Auth) {
 
     // bind here all data from the form
     $scope.account = {};
@@ -15,8 +15,11 @@ GST.controller('RegisterFormController', ['$scope', '$http', '$state', function(
 
         if($scope.registerForm.$valid) {
 
-            $http
-                .post('api/account/register', {email: $scope.account.email, password: $scope.account.password})
+            Auth
+                .register(
+                $scope.account.email,
+                $scope.register.password,
+                $scope.register.account_password_confirm)
                 .then(function(response) {
                     // assumes if ok, response is an object with some data, if not, a string with error
                     // customize according to your api

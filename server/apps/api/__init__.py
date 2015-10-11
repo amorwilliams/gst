@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import urls
-import user
-import post
+from .views import ns_users, ns_posts, api
+
+from .users import *
+from .posts import *
+

@@ -51,7 +51,7 @@ var source = {
         paths.scripts + 'modules/filters/*.js',
         paths.scripts + 'gst/gst.js',
         paths.scripts + 'gst/modules/*.js',
-        paths.scripts + 'gst/modules/accounts/**/*.js'
+        paths.scripts + 'gst/modules/users/**/*.js'
     ],
     templates: {
         index: [paths.markup + 'index.*'],
